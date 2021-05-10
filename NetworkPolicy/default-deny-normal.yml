@@ -8,11 +8,3 @@ spec:
   policyTypes:
   - Ingress
   - Egress
-  egress: 
-  - to:
-    ports: 
-    - port: 53
-      protocol: TCP
-    - port: 53
-      protocol: UDP
-
