@@ -1,0 +1,11 @@
+apiVersion: "security.istio.io/v1beta1"
+kind: "PeerAuthentication"
+metadata:
+  name: "default"
+  namespace: "suman1"
+spec:
+  selector: 
+   matchLabels: 
+    app: mayank
+  mtls:
+    mode: STRICT

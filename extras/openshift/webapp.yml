@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebapp
+  labels:
+    app: mywebapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      labels:
+        app: mywebapp 
+    spec:
+      containers:
+      - name: nginx
+        image: quay.io/mayank123modi/simple-webapp 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mywebapp
+spec:
+  selector:
+    app: mywebapp
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+
+apiVersion: v1
+kind: Route
+metadata:
+  name: frontend
+spec:
+  host: mywebapp-newlab.apps.mynew.sriyank.xyz
+  to:
+    kind: Service
+    name: mywebapp

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: quaypod
+ labels: 
+  quay: working
+spec: 
+ containers: 
+ - image: quay.io/mayank123modi/myhttpd
+   name: myquay
+ serviceAccount: mayank
+ serviceAccountName: mayank
